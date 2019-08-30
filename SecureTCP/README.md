@@ -1,0 +1,10 @@
+# TCP Socket RSA Wrapper
+rsasocket.py is used in conjunction with rsa.py. rsa.py provides the encryption capability to be able to encrypt messages using a 512 bit RSA encryption scheme. rsasocke.py serves as a TCP socket wrapper to add secure functionality to a TCP socket. 
+
+## Usage
+To create a new rsasocket object, create a new instance as you would without any parameters. You can then go about setting up the socket as you would with a normal TCP socket. In order to have messages encrypted, you must use the methods rsasocket.secureSend() and rsasocket.secureRecv(). These two methods handle the exchange of public keys between the sender and receiver and will handle any encrypting and decrypting of the data exchanged. 
+When using the secureSend() function it is not necessary encode the string in any way, this is taken care of inside the function before being sent. The same goes for secureRecv(), data does not need to be decoded and will be returned as a string.
+Setting the time out for an rsasocket is done in a similar way as a regular TCP socket. However a user does not need to catch a socket.timeout error because it will be caught within the secureRecv() function and return an empty string value.
+
+## Applications
+Due to the implementation nature of this program, this type of socket is best used to transmit small length messages for best speed.
