@@ -1,3 +1,4 @@
+# Protocol X
 Our protocol is known as Protocol X.  We created this protocol from the ground up, using UDP pipes as the transport method.
 The sender program will send a file to the reciever on a specified address.  The file is broken up into packets, and those
 packets are sent in bursts.  Burst size and data section size (size of packet) are specified in sender.py.  Each burst is a
@@ -11,18 +12,28 @@ Once all the bursts have been sent the sender and receiver will send end acks to
 
 SENDER              RECEIVER
 ----------------------------
-BEGIN ----------->  
+BEGIN ----------->
+  
       <----------   ACK
+
 BURST 1 -------->   
+
       <----------   ACK
+
 BURST 2 -------->   
+
       <----------   ACK
+
 ETC...
 
 END   ---------->   
+
       <----------   OK END
 
-Testing Results:
+## Testing Results
 Durring our testing of our protocol we collected three data points for each type of sending and receiving condition.  We determined that our protocol works in call conditions using our test.txt as the data file.
 The time it takes to send this file was quite consistent over the different degrees of sending restrictions.
 To see a graph of our open the pdf named Results-Sheet1.pdf
+
+#### Authors
+Matthew Turconi & Michael Santamaria
